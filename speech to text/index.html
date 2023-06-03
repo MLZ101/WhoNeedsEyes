@@ -1,0 +1,98 @@
+    <!-- I should have used a database as it would have been much easier but I like to suffer :) -->
+
+              <!-- 
+                THIS WHOLE PROJECT IS MEANT TO BE ASSOCIATED WITH HARDWARE
+                UNDER THE THEME OF ASSISTING THE VISUALLY IMPAIRED
+                ANY TYPE OF KEY USAGE INSTEAD OF ON SCREEN BUTTONS 
+                IN THE CODE IS JUST PUT HERE FOR TEMPORARY IMPLEMENTATION AND WOULD BE
+                USED WITH A PHYSICAL BUTTON 
+              -->
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style_i.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <title>Who Needs Eyes</title>
+</head>
+
+<body>
+   <div class="container" id="main" onmouseover="hover()" onmouseout="hoverOut()">   
+    <div id="top-section">
+
+      <h1 id="top"> Your Voice Guides My Pen</h1>
+      <p class="bottom" id = 'index_p'>Press '2' to Navigate to Notes Recording Page<br> 
+      Tap '3' to Access Your Saves Page</p>
+      <img src="closedeye.png" 
+      alt="closed eye" 
+      class="image" id="closedeye"
+      >
+      
+    </div>
+
+  </div>
+
+
+
+
+<script>
+
+const h1 = document.getElementById("top");
+const p = document.getElementById("index_p");
+
+
+// ----------- Speech Synthesis ------------
+
+const tts = window.speechSynthesis;
+
+window.addEventListener('load', ()=> {
+  toRead = 'This is the home page\n' + p.innerText;
+  utterance = new SpeechSynthesisUtterance(toRead);
+  tts.speak(utterance);
+});
+
+
+  // ------------- Useless Eye Animation -------------
+
+  container = document.getElementById("main");
+  img = document.getElementById("closedeye");
+
+  function hover(){
+    img.setAttribute('src','openeye.png');
+  }
+
+  function hoverOut(){
+    img.setAttribute('src','closedeye.png');
+  }
+
+
+   // ----------- Navigation to Other Page ------------  
+  
+  document.addEventListener('keydown', (event)=> {        
+  if (event. key === '2'){
+    tts.cancel();
+    location.href = 'speech_to_text.html';            
+  }
+});  
+
+document.addEventListener('keydown', (event)=> {        
+  if (event. key === '3'){
+    tts.cancel();
+    location.href = 'saved.html';            
+  }
+}); 
+
+</script>
+
+
+</body>
+
+</html>

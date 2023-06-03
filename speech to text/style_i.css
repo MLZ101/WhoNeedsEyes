@@ -1,0 +1,93 @@
+/* ------- The Broader Structure --------*/
+*{
+    font-family: 'Poppins';
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  font-size: 68px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #343a40;
+  background-image: url(bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+
+
+
+
+/* ------- Main Sections -------*/
+
+#top-section {
+
+  color: #eaf3fcaf;
+  flex: 1;
+  text-align: center;
+}
+
+.container:hover{
+  filter: brightness(85%);
+}
+
+.image{
+  margin-top: 30px;
+  width: 200px;
+  height: 160px;
+}
+
+h1{
+    vertical-align: middle;
+    font-size: 60px;
+    animation-fill-mode: forwards;
+    vertical-align: middle;
+    font-weight:lighter;
+}
+
+
+
+
+/*------ For Animations ------*/
+
+#top{
+  animation-iteration-count: 1;
+  animation: fade-in 4s forwards;
+}
+
+.bottom{
+  color: #7d7e80ce;
+  font-size: 20px;
+  animation-iteration-count: 2;
+  animation: fade-in  2s forwards;
+  animation-delay: 2s;
+  opacity: 0;
+}
+
+#closedeye{
+  animation-iteration-count: 3;
+  animation: fade-in  2s forwards;
+  animation-delay: 4s;
+  opacity: 0;
+  filter: invert(70%);
+}
+
+@keyframes fade-in{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

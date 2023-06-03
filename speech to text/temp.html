@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trying tts</title>
+</head>
+<body>
+
+    <p id="tts_txt">hello there</p>
+    <h1>did it work?</h1>
+    
+
+    <script>
+if ('speechSynthesis' in window) {
+    if ('speechSynthesis' in window) {
+  const utterance = new SpeechSynthesisUtterance();
+
+  function readPageContent() {
+    const elementsToRead = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, li');
+    let content = '';
+
+    elementsToRead.forEach((element) => {
+      content += element.textContent + ' ';
+    });
+
+    utterance.text = content;
+  }
+
+  // Add a button to trigger speech synthesis
+  const button = document.createElement('button');
+  button.textContent = 'Read Page';
+  document.body.appendChild(button);
+
+  // Event listener for button click
+  button.addEventListener('click', () => {
+    readPageContent();
+    speechSynthesis.speak(utterance);
+  });
+} else {
+  console.log('Speech synthesis is not supported in this browser.');
+}
+
+}
+
+//     tts.addEventListener('voiceschanged', () => {
+//   const voices = tts.getVoices();
+  
+  // Iterate through the available voices
+//   for (const voice of voices) 
+//     // if (voice.lang.startsWith('en')) {
+//         console.log(voice);
+//   //}
+//     });
+    </script>
+    
+</body>
+</html>
