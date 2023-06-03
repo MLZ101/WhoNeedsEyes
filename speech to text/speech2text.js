@@ -63,39 +63,39 @@ recognition.addEventListener("result", (event) => {
   
   if (event.results[0].isFinal) {
     switch(text.toLowerCase()){                 // these words/phrases can be used as literal when said with a full text not as a single input
-      case "comma.":               
+      case "comma":               
         inputs[i] = ',';
         textblock.value +=',';
         audio.play();
         break;
 
-    case "point.":
+    case "point":
       inputs[i] = '.';
       textblock.value +='.';
       console.log(inputs[i]);
       audio.play();
       break;
 
-    case "question mark.":
+    case "question mark":
       inputs[i] = '?';
       textblock.value +='?';
       audio.play();
       break;
 
-    case "exclamation mark.":
+    case "exclamation mark":
       inputs[i] = '!';
       textblock.value +='! ';
       audio.play();
       break;
 
-    case "colon.":
+    case "colon":
       inputs[i] = ':';
       textblock.value +=':';
       audio.play();
       break;
 
     default:
-      inputs.push(' ' + text.substring(0, text.length - 1));
+      inputs.push(' ' + text);
       textblock.value += ' ' + text ;
 
       audio.play();
