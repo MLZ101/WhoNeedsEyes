@@ -34,6 +34,8 @@ else{
 
 
 
+
+
 //-------------------------- Setting Up the Speech Synthesis (text to speech)  -------------------------------
 
 
@@ -49,6 +51,9 @@ window.addEventListener('load', ()=> {
 
 
 toRead = '';
+
+
+
 
 
 
@@ -104,8 +109,20 @@ recognition.addEventListener("result", (event) => {
 
     toRead += text;
 
+    
+    
+    
+    
+    
+    
+    
+    // ***********  Configuring the Buttons  ************
+    
+    
     document.addEventListener('keydown', (event)=> {   
-
+      
+// read
+      
       if (event. key === '6'){
         utterance = new SpeechSynthesisUtterance(toRead);
         tts.speak(utterance);                                 
@@ -116,7 +133,11 @@ recognition.addEventListener("result", (event) => {
     console.log(text);
     i++;                                               
     
-    document.addEventListener('keydown', (event) =>{          
+    document.addEventListener('keydown', (event) =>{ 
+      
+      
+// save (one click at a time)
+      
     if (event.key === ' ' && can_save) {                     
     new Audio("save_sound.wav").play();
     localStorage.setItem("Note " + (parseInt(localStorage.getItem("index"))+1).toString()
@@ -136,6 +157,8 @@ recognition.addEventListener("result", (event) => {
 });
 
 
+// main click (also enables save)
+
 document.addEventListener('keydown', (event) =>{ 
   tts.cancel();
   if (event. key === '0'){
@@ -143,6 +166,9 @@ document.addEventListener('keydown', (event) =>{
     can_save = true;                                  
   }
 
+  
+  // page navigation
+  
   if(event.key === '1'){
     tts.cancel();
     location.href = "index.html";
@@ -154,7 +180,8 @@ document.addEventListener('keydown', (event) =>{
   }
 
 
-
+// help button (speaks the instructions and displays only once)
+  
   if (event.key === '5'){
     help = document.createElement("p");
     help.style.border = 'none';
@@ -173,4 +200,3 @@ document.addEventListener('keydown', (event) =>{
 
 // Note: \n for pause in speech synthesis while <br> for new line in p element
 
-// help option instead of toRead
