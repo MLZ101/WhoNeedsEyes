@@ -138,7 +138,7 @@ recognition.addEventListener("result", (event) => {
       
 // save (one click at a time)
       
-    if (event.key === ' ' && can_save) {                     
+    if (event.key === '4' && can_save) {                     
     new Audio("save_sound.wav").play();
     localStorage.setItem("Note " + (parseInt(localStorage.getItem("index"))+1).toString()
                         ,inputs.join("")
@@ -186,7 +186,7 @@ document.addEventListener('keydown', (event) =>{
     help = document.createElement("p");
     help.style.border = 'none';
     help.style.color = 'white';
-    help.innerHTML = "Click '0' to Start or Continue Inputting Speech \n<br> '6' to Read What You've Written So Far \n<br> 'Spacebar' to Save \n<br> and the Buttons '1' for Homepage,'3' for Saved Notes Page <br>\n";
+    help.innerHTML = "Click '0' to Start or Continue Inputting Speech \n<br> '6' to Read What You've Written So Far \n<br> '4' to Save \n<br> and the Buttons '1' for Homepage,'3' for Saved Notes Page <br>\n";
     help.style.textAlign = 'center';
     help.style.backgroundColor = 'transparent';
     if (!pressed5){
